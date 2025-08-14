@@ -29,7 +29,9 @@
   ],
   "author": "Ronit Sachdeva <ronitsachdev007@gmail.com>",
   "contributors": [
-    "Your Name <your.email@example.com> (fork maintainer)"
+    "Ronit Sachdeva <ronitsachdev007@gmail.com> (original author)",
+    "Dominic1215 (bug fix contributor)",
+    "fengyunzaidushi (fork maintainer)"
   ],
   "license": "MIT",
   "type": "module",
@@ -38,12 +40,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/cundo.git"
+    "url": "https://github.com/fengyunzaidushi/cundo.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/cundo/issues"
+    "url": "https://github.com/fengyunzaidushi/cundo/issues"
   },
-  "homepage": "https://github.com/yourusername/cundo#readme",
+  "homepage": "https://github.com/fengyunzaidushi/cundo#readme",
   "files": [
     "bin/",
     "src/",
