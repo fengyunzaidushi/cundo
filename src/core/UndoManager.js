@@ -5,7 +5,7 @@ import { OperationType } from './Operation.js';
 
 export class UndoManager {
   constructor() {
-    this.backupDir = path.join(os.homedir(), '.ccundo', 'backups');
+    this.backupDir = path.join(os.homedir(), '.cundo', 'backups');
   }
 
   async init() {

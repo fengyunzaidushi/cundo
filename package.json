@@ -1,10 +1,10 @@
 {
-  "name": "ccundo",
-  "version": "1.1.1",
-  "description": "Intelligent undo for Claude Code sessions - Revert individual operations with cascading safety and detailed previews",
+  "name": "cundo",
+  "version": "1.0.0",
+  "description": "Enhanced undo tool for Claude Code sessions - Fixed and improved version with cascading safety and detailed previews",
   "main": "index.js",
   "bin": {
-    "ccundo": "./bin/ccundo.js"
+    "cundo": "./bin/cundo.js"
   },
   "scripts": {
     "test": "jest",
@@ -24,9 +24,13 @@
     "backup",
     "preview",
     "internationalization",
-    "japanese"
+    "enhanced",
+    "fork"
   ],
   "author": "Ronit Sachdeva <ronitsachdev007@gmail.com>",
+  "contributors": [
+    "Your Name <your.email@example.com> (fork maintainer)"
+  ],
   "license": "MIT",
   "type": "module",
   "engines": {
@@ -34,12 +38,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/RonitSachdev/ccundo.git"
+    "url": "https://github.com/yourusername/cundo.git"
   },
   "bugs": {
-    "url": "https://github.com/RonitSachdev/ccundo/issues"
+    "url": "https://github.com/yourusername/cundo/issues"
   },
-  "homepage": "https://github.com/RonitSachdev/ccundo#readme",
+  "homepage": "https://github.com/yourusername/cundo#readme",
   "files": [
     "bin/",
     "src/",

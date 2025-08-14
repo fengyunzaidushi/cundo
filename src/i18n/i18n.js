@@ -6,7 +6,7 @@ import { languages } from './languages.js';
 class I18n {
   constructor() {
     this.currentLanguage = 'en';
-    this.configFile = path.join(os.homedir(), '.ccundo', 'config.json');
+    this.configFile = path.join(os.homedir(), '.cundo', 'config.json');
   }
 
   async init() {

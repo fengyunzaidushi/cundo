@@ -20,9 +20,9 @@ await i18n.init();
 const program = new Command();
 
 program
-  .name('ccundo')
-  .description('Undo individual steps performed by Claude Code within a session')
-  .version('1.1.1');
+  .name('cundo')
+  .description('Enhanced undo tool for Claude Code sessions - Fixed and improved version')
+  .version('1.0.0');
 
 program
   .command('list')

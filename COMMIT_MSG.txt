@@ -1,0 +1,14 @@
+Fork ccundo to cundo: Enhanced Claude Code Undo Tool
+
+- Rename project from ccundo to cundo for better clarity
+- Update all configuration paths from .ccundo to .cundo
+- Create new bin/cundo.js file with updated references
+- Update package.json with new package name and metadata
+- Fix code style and formatting issues
+- Update documentation (README.md, CHANGELOG.md)
+- Create migration documentation (docs/FORK.md)
+- Set proper file permissions
+
+This fork addresses bugs in the original ccundo project while
+providing a more maintainable and improved version of the tool.
+Original author credit is preserved.

@@ -1,18 +1,19 @@
-import fs from 'fs/promises';
-import path from 'path';
-import os from 'os';
-import { Operation, OperationType } from './Operation.js';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
+import fs from "fs/promises";
+import path from "path";
+import os from "os";
+import { Operation, OperationType } from "./Operation.js";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 export class SessionTracker {
   constructor(sessionId = null) {
-    this.sessionId = sessionId || new Date().toISOString().replace(/[:.]/g, '-');
+    this.sessionId =
+      sessionId || new Date().toISOString().replace(/[:.]/g, "-");
     this.operations = [];
-    this.sessionDir = path.join(os.homedir(), '.ccundo', 'sessions');
+    this.sessionDir = path.join(os.homedir(), ".cundo", "sessions");
     this.sessionFile = path.join(this.sessionDir, `${this.sessionId}.json`);
   }
 
@@ -23,11 +24,11 @@ export class SessionTracker {
 
   async load() {
     try {
-      const data = await fs.readFile(this.sessionFile, 'utf8');
+      const data = await fs.readFile(this.sessionFile, "utf8");
       const session = JSON.parse(data);
-      this.operations = session.operations.map(op => Operation.fromJSON(op));
+      this.operations = session.operations.map((op) => Operation.fromJSON(op));
     } catch (error) {
-      if (error.code !== 'ENOENT') {
+      if (error.code !== "ENOENT") {
         throw error;
       }
     }
@@ -36,7 +37,7 @@ export class SessionTracker {
   async save() {
     const sessionData = {
       sessionId: this.sessionId,
-      operations: this.operations.map(op => op.toJSON())
+      operations: this.operations.map((op) => op.toJSON()),
     };
     await fs.writeFile(this.sessionFile, JSON.stringify(sessionData, null, 2));
   }
@@ -47,13 +48,13 @@ export class SessionTracker {
   }
 
   async getOperations(includeUndone = false) {
-    return includeUndone 
-      ? this.operations 
-      : this.operations.filter(op => !op.undone);
+    return includeUndone
+      ? this.operations
+      : this.operations.filter((op) => !op.undone);
   }
 
   async getOperation(id) {
-    return this.operations.find(op => op.id === id);
+    return this.operations.find((op) => op.id === id);
   }
 
   async markUndone(operationId) {
@@ -66,14 +67,14 @@ export class SessionTracker {
   }
 
   static async listSessions() {
-    const sessionDir = path.join(os.homedir(), '.ccundo', 'sessions');
+    const sessionDir = path.join(os.homedir(), ".cundo", "sessions");
     try {
       const files = await fs.readdir(sessionDir);
       return files
-        .filter(f => f.endsWith('.json'))
-        .map(f => f.replace('.json', ''));
+        .filter((f) => f.endsWith(".json"))
+        .map((f) => f.replace(".json", ""));
     } catch (error) {
-      if (error.code === 'ENOENT') {
+      if (error.code === "ENOENT") {
         return [];
       }
       throw error;
@@ -81,9 +82,9 @@ export class SessionTracker {
   }
 
   static async getCurrentSession() {
-    const currentFile = path.join(os.homedir(), '.ccundo', 'current-session');
+    const currentFile = path.join(os.homedir(), ".cundo", "current-session");
     try {
-      const sessionId = await fs.readFile(currentFile, 'utf8');
+      const sessionId = await fs.readFile(currentFile, "utf8");
       return sessionId.trim();
     } catch (error) {
       return null;
@@ -91,7 +92,7 @@ export class SessionTracker {
   }
 
   static async setCurrentSession(sessionId) {
-    const currentFile = path.join(os.homedir(), '.ccundo', 'current-session');
+    const currentFile = path.join(os.homedir(), ".cundo", "current-session");
     await fs.mkdir(path.dirname(currentFile), { recursive: true });
     await fs.writeFile(currentFile, sessionId);
   }
