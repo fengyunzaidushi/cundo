@@ -1,6 +1,6 @@
 {
   "name": "cundo",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Enhanced undo tool for Claude Code sessions - Fixed and improved version with cascading safety and detailed previews",
   "main": "index.js",
   "bin": {
